@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            background: linear-gradient(to right, skyblue, red);
+        }
+
+        .navbar-custom {
+            background-color: #4b0082; /* Viola scuro */
+        }
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-nav .nav-link {
+            color: white; /* Assicura che il testo sia bianco per un buon contrasto */
+        }
+    </style>
+    <script src="script.js"></script>
+    <title>Notizie</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-custom">
+        <div class="container">
+            <a class="navbar-brand text-white fw-bold" href="#">Notizie</a> <!-- Aggiunte classi text-white e fw-bold -->
+            <button 
+                class="navbar-toggler d-lg-none"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavId"
+                aria-controls="collapsibleNavId"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container mt-3">
+        <div class="row">
+            <p>Questo <b>sito di notizie ricerca</b> tutte le notizie pubblicate <b>fino a 3 mesi fa</b> <br> e ti permette di salvarle come preferite.</p>
+            <div class="col-md-6">
+                <input
+                    class="form-control"
+                    type="text"
+                    placeholder="Search"
+                    id="RicercaNotiziaTxt"
+                />
+            </div><br><br>
+            <div class="col-md-6">
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="searchInLocalStorage()"
+                >
+                    Cerca Notizia Gia <br> Trovata
+                </button>
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="searchAndCreate()"
+                >
+                    Cerca Notizia
+                </button>
+                <button
+                type="button"
+                class="btn btn-primary"
+                onclick="clearArticleCards();localStorage.clear()"
+            >
+                Clear All
+            </button>
+            <button
+                type="button"
+                class="btn btn-primary"
+                onclick="loadArticlesFromLocalStoragePreferiti()"
+            >
+                Visualizza Preferiti
+            </button>
+            </div>
+        </div>
+    </div>
+    <div id="articleContainer" class="container mt-4"></div>
+</body>
+</html>
